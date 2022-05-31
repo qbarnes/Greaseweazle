@@ -233,7 +233,27 @@ class Format_Sega_SF7000(Format):
         self.default_revs = m.default_revs
         super().__init__()
 
+class Format_TRS80_M1_SS(Format):
+    img_compatible = True
+    default_trackset = 'c=0-39:h=0'
+    max_trackset = 'c=0-81:h=0'
+    def __init__(self):
+        import greaseweazle.codec.ibm.fm as m
+        self.fmt = m.TRS80_FM_All
+        self.default_revs = m.default_revs
+        super().__init__()
     
+class Format_TRS80_M1_DS(Format):
+    img_compatible = True
+    default_trackset = 'c=0-39:h=0-1'
+    max_trackset = 'c=0-81:h=0-1'
+    def __init__(self):
+        import greaseweazle.codec.ibm.fm as m
+        self.fmt = m.TRS80_FM_All
+        self.default_revs = m.default_revs
+        super().__init__()
+
+ 
 formats = OrderedDict({
     'acorn.dfs.ss': Format_Acorn_DFS_SS,
     'acorn.dfs.ds': Format_Acorn_DFS_DS,
@@ -260,6 +280,8 @@ formats = OrderedDict({
     'ibm.1680': Format_IBM_1680,
     'ibm.dmf': Format_IBM_1680,
     'sega.sf7000': Format_Sega_SF7000,
+    'trs80.ss': Format_TRS80_SS_SD,
+    'trs80.ds': Format_TRS80_M1_DS,
 })
 
 def print_formats(f = None):

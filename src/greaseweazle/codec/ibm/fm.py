@@ -339,6 +339,19 @@ class Atari_90(IBM_FM_Predefined):
     sz    = 0
     cskew = 3
 
+class TRS80_FM_All(IBM_FM_Predefined):
+
+    time_per_rev = 0.2
+    clock = 4e-6
+
+    gap_1  = 0 # No IAM
+    gap_3  = 21
+    nsec   = 10
+    id0    = 0
+    sz     = 1
+    cskew  = 3
+
+
 encode_list = []
 for x in range(256):
     y = 0
